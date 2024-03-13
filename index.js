@@ -41,11 +41,7 @@ app.post("/", (req, res, next) => {
     Type: Type,
     Poster: Poster,
   };
-  // local array
   movies.push(movie);
-  // Update movies.json file
-  // fs.writeFileSync(JSON_FILE, JSON.stringify(movies, null, 2));
-
   res.status(201).json(movie);
 });
 
@@ -88,7 +84,7 @@ function shutdown() {
   fs.writeFileSync(JSON_FILE, JSON.stringify(movies, null, 2));
   // Close the server
   server.close(() => {
-    console.log("Server closed. Exiting process...");
+    console.log("Closing server");
     process.exit(0);
   });
 }
